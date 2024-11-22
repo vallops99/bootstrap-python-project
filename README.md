@@ -2,6 +2,8 @@
 Bootstrap a Python project with [devbox](https://github.com/jetify-com/devbox), [uv](https://github.com/astral-sh/uv), [ruff](https://github.com/astral-sh/ruff), [mypy](https://github.com/python/mypy), and [pre-commit](https://github.com/pre-commit/pre-commit).
 
 ## Overview ##
+This repository is intendend to give developers a way to improve their life.
+These are the most advanced tools of the moment that a Python developer can use.
 Next will be described the main reasons of such choices.
 
 ### What is devbox? What is used for? ###
