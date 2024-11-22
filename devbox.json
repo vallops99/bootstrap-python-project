@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.10.7/.schema/devbox.schema.json",
+  "packages": [
+    "python@3.13",
+    "uv@0.4.30",
+    "ruff@0.7.4",
+    "mypy@1.11.2",
+    "pre-commit@4.0.1"
+  ],
+  "shell": {
+    "init_hook": [
+      ". $VENV_DIR/bin/activate",
+      "pre-commit install"
+    ]
+  }
+}
