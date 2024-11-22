@@ -70,3 +70,5 @@ Bear in mind that this "needs" are your environment requirements that will let y
 
 Furthermore, if you look inside `devbox.json` you'll find a line under the key `init_hook`: `"pre-commit install"`.   
 This line basically "installs" the git hooks under your project's `.git` directory (as they should be in order to work by default).   
+
+Bear in mind that your first commit will be slow due to dependencies installation, other commits will be super fast.
