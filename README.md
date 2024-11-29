@@ -81,7 +81,10 @@ Hooks are a magical Git thing, they let you run actions on versioning events (eg
 In this way you can implement linter, formatter and static type checker into your versioning pipeline and you can version the hooks configuration too!  
 In this project, we already set up pre-commit in order to create a pre-commit hook that runs exactly: formatter, linter, static type checker and tests too through UV.  
 Last but not least, the combination of devbox and pre-commit makes mandatory the installation of Git hooks into every cloned repository.  
-For sure everyone could avoid activating the devbox shell and just create a commit, but if you manage every dependency through devbox nobody will take that route (developers are lazy that's why they are efficient).
+For sure everyone could avoid activating the devbox shell and just create a commit, but if you manage every dependency through devbox nobody will take that route (developers are lazy that's why they are efficient).  
+
+NOTE: Running tests in pre-commit hook may not be the best decision, it depends on a lot of factor, main one "how much time do your tests take?"  
+In this repository case, running tests makes sense, but they are just a quick demo.
 
 <p><b>Why not other Git hooks frameworks?</b></p>
 
