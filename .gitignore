@@ -4,3 +4,4 @@
 .venv
 .python-version
 devbox.lock
+flask
