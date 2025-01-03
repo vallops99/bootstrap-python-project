@@ -7,7 +7,7 @@ These are the most advanced tools of the moment that a Python developer can use.
 Next will be described the main reasons of such choices.
 
 ### What is devbox? What is used for? ###
-Devbox is an environment manager, it is based on [Nix](https://nixos.org/) and it is perfect to create a custom, completely isolated, easy to handle, and easy to replicate environment with whatever techonology you are in need.    
+Devbox is an environment manager, it is based on [Nix](https://nixos.org/) and it is perfect to create a custom, isolated, easy to handle, and easy to replicate environment with whatever techonology you are in need.    
 In this case we create our environment with Python 3.13, uv 0.4.30, ruff 0.7.4, mypy 1.11.2, and pre-commit 4.0.1    
 By just typing `devbox shell` in your terminal you start a new Nix shell configured through a devbox.json file (that describes the environment you are in need).
 
@@ -60,12 +60,12 @@ It is been choosen for its lightness and speed compared to others (Autoflake, Fl
 
 <p><b>Why not other linters/formatters?</b></p>
 
-The picture above describes the situation, this is the fastest package manager at the moment.   
+The picture above describes the situation, this is the fastest linter/formatter at the moment.   
 On top of that, in my opinion, it is the most clean and technologically advanced project of its type.  
 
 ### What is Mypy? What is used for? ###
 Mypy is a static type checker for Python, it leverages Python's type hinting ([PEP 484](https://peps.python.org/pep-0484/)) in order to increase type safety.    
-Bear in mind that Python is not a statically typed language, meaning that even if Mypy will give a positive result, the code isn't type safe!   
+Bear in mind that Python is NOT a statically typed language, meaning that even if Mypy will give a positive result, the code isn't type safe!   
 <p><b>Why not other static type checker?</b></p>
 
 They all had something weird about:
@@ -77,14 +77,14 @@ They all had something weird about:
 
 ### What is Pre-commit? What is used for? ###
 Pre-commit is a framework for managing and maintaining Git hooks.   
-Hooks are a magical Git thing, they let you run actions on versioning events (eg. Git's pre-commit hook runs a script between running `git commit` command and actually creating a commit).  
+Hooks are a magical Git thing, they let you run actions on versioning events (eg. Git's pre-commit hook runs a script between `git commit` command and actually creating a commit).  
 In this way you can implement linter, formatter and static type checker into your versioning pipeline and you can version the hooks configuration too!  
-In this project, we already set up pre-commit in order to create a pre-commit hook that runs exactly: formatter, linter, static type checker and tests too through UV.  
+In this project, we already set up pre-commit in order to create a pre-commit hook that runs exactly: formatter, linter, static type checker and tests through UV.  
 Last but not least, the combination of devbox and pre-commit makes mandatory the installation of Git hooks into every cloned repository.  
 For sure everyone could avoid activating the devbox shell and just create a commit, but if you manage every dependency through devbox nobody will take that route (developers are lazy that's why they are efficient).  
 
 NOTE: Running tests in pre-commit hook may not be the best decision, it depends on a lot of factor, main one "how much time do your tests take?"  
-In this repository case, running tests makes sense, but they are just a quick demo.
+In this repository case, running tests makes sense, because they are just a quick demo.
 
 <p><b>Why not other Git hooks frameworks?</b></p>
 
@@ -103,9 +103,12 @@ If anybody is aware of that, please feel free to open a PR with your considerati
 
 The shell that will open after the last command is managed by [Nix](https://nixos.org/) and it will contain all your project's basic needs.    
 This means that UV, Ruff, Mypy, and Pre-commit will be already installed.    
-Bear in mind that this "needs" are your environment requirements that will let you work, that are different from your project requirements.   
+Bear in mind that this "needs" are your environment requirements that will let you work, they are different from your project requirements that you will install through UV (`uv sync`).   
 
 Furthermore, if you look inside `devbox.json` you'll find a line under the key `init_hook`: `"pre-commit install"`.   
 This line basically "installs" the git hooks under your project's `.git` directory (as they should be in order to work by default).   
 
 Bear in mind that your first commit will be slow due to dependencies installation, other commits will be faster.
+
+
+## Testing workspace ##

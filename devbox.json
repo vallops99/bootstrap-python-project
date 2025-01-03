@@ -1,11 +1,12 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.10.7/.schema/devbox.schema.json",
   "packages": [
-    "python@3.13",
+    "python@3.12",
     "uv@0.4.30",
     "ruff@0.7.4",
     "mypy@1.11.2",
-    "pre-commit@4.0.1"
+    "pre-commit@4.0.1",
+    "python312Packages.pylsp-mypy@0.6.9"
   ],
   "shell": {
     "init_hook": [

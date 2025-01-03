@@ -1,7 +1,10 @@
 .devbox
+__pycache__
 .mypy_cache
+.pytest_cache
 .ruff_cache
 .venv
 .python-version
 devbox.lock
-flask
+.helix
+.idea
