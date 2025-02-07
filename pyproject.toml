@@ -9,7 +9,7 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "ruff>=0.7.4",
-    "randomizer-pkg",
+    "randomizer-pkg==0.1.0",
 ]
 
 [build-system]
@@ -24,20 +24,6 @@ randomizer-pkg = { workspace = true }
 
 [tool.uv.workspace]
 members = ["packages/*"]
-
-[tool.mypy]
-pretty = true
-show_error_codes = true
-color_output = true
-error_summary = true
-ignore_missing_imports = false
-follow_imports = "normal"
-warn_redundant_casts = true
-warn_unused_ignores = false
-warn_unreachable = true
-warn_no_return = true
-check_untyped_defs = true
-
 
 [tool.ruff]
 # Exclude a variety of commonly ignored directories.

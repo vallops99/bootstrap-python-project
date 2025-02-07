@@ -4,9 +4,8 @@
     "python@3.12",
     "uv@0.4.30",
     "ruff@0.7.4",
-    "mypy@1.11.2",
+    "pyright@1.1.382",
     "pre-commit@4.0.1",
-    "python312Packages.pylsp-mypy@0.6.9"
   ],
   "shell": {
     "init_hook": [

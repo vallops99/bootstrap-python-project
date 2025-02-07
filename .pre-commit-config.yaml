@@ -7,11 +7,17 @@ repos:
       args: [ --fix, --config, pyproject.toml ]
     - id: ruff-format
       args: [ --config, pyproject.toml ]
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.13.0
+  # - repo: https://github.com/RobertCraigie/pyright-python
+  #   rev: v1.1.393
+  #   hooks:
+  #   - id: pyright
+  - repo: local
     hooks:
-    - id: mypy
-      args: [ --config-file=pyproject.toml ]
+      - id: run-pyright
+        name: run-pyright
+        entry: bash -c "uv run pyright $@"
+        language: system
+        files: ^.*\.py
   - repo: local
     hooks:
     - id: run-tests

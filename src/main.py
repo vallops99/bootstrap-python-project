@@ -6,4 +6,4 @@ def main(msg) -> str:
 
 
 if __name__ == "__main__":
-    main("Hello from bootstrap-python-project!")
+    _ = main("Hello from bootstrap-python-project!")

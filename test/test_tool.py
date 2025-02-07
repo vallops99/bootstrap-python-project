@@ -6,7 +6,7 @@ from randomizer_pkg.randomizer import randomizer
 from src.main import main
 
 
-class TestHello(unittest.TestCase):
+class TestTool(unittest.TestCase):
     def test_hello(self):
         self.assertEqual(
             main("Hello from bootstrap-python-project!"),

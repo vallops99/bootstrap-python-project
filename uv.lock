@@ -32,7 +32,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "staticker-pkg" }]
+requires-dist = [{ name = "staticker-pkg", specifier = "==0.1.0" }]
 
 [[package]]
 name = "ruff"

@@ -1,5 +1,7 @@
 # Bootstrap Python Project #
-Bootstrap your Python project with [devbox](https://github.com/jetify-com/devbox), [uv](https://github.com/astral-sh/uv), [ruff](https://github.com/astral-sh/ruff), [mypy](https://github.com/python/mypy), and [pre-commit](https://github.com/pre-commit/pre-commit).
+Bootstrap your Python project with [devbox](https://github.com/jetify-com/devbox), [uv](https://github.com/astral-sh/uv), [ruff](https://github.com/astral-sh/ruff), [pyright](https://github.com/microsoft/pyright), and [pre-commit](https://github.com/pre-commit/pre-commit).
+
+[![Checked with pyright](https://microsoft.github.io/pyright/img/pyright_badge.svg)](https://microsoft.github.io/pyright/)
 
 ## Overview ##
 This repository is intendend to give developers a way to improve their life.   
@@ -8,7 +10,7 @@ Next will be described the main reasons of such choices.
 
 ### What is devbox? What is used for? ###
 Devbox is an environment manager, it is based on [Nix](https://nixos.org/) and it is perfect to create a custom, isolated, easy to handle, and easy to replicate environment with whatever techonology you are in need.    
-In this case we create our environment with Python 3.13, uv 0.4.30, ruff 0.7.4, mypy 1.11.2, and pre-commit 4.0.1    
+In this case we create our environment with Python, uv, ruff, pyright, and pre-commit    
 By just typing `devbox shell` in your terminal you start a new Nix shell configured through a devbox.json file (that describes the environment you are in need).
 
 <p><b>Downside:</b></p>
@@ -44,7 +46,7 @@ On top of that, in my opinion, it is the most clean and technologically advanced
 
 ### What is Ruff? What is used for? ###
 Ruff is a Python linter and formatter written in Rust by [Astral](https://astral.sh/) (it is the brother of UV).   
-It is been choosen for its lightness and speed compared to others (Autoflake, Flake8, etc...).
+It has been choosen for its lightness and speed compared to others (Autoflake, Flake8, etc...).
 
 <picture align="left">
     <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/1309177/232603514-c95e9b0f-6b31-43de-9a80-9e844173fd6a.svg">
@@ -63,17 +65,17 @@ It is been choosen for its lightness and speed compared to others (Autoflake, Fl
 The picture above describes the situation, this is the fastest linter/formatter at the moment.   
 On top of that, in my opinion, it is the most clean and technologically advanced project of its type.  
 
-### What is Mypy? What is used for? ###
-Mypy is a static type checker for Python, it leverages Python's type hinting ([PEP 484](https://peps.python.org/pep-0484/)) in order to increase type safety.    
-Bear in mind that Python is NOT a statically typed language, meaning that even if Mypy will give a positive result, the code isn't type safe!   
+### What is Pyright? What is used for? ###
+Pyright is a static type checker for Python, it leverages Python's type hinting ([PEP 484](https://peps.python.org/pep-0484/)) in order to increase type safety.    
+Bear in mind that Python is NOT a statically typed language, meaning that even if Pyright will give a positive result, the code isn't type safe!   
 <p><b>Why not other static type checker?</b></p>
 
 They all had something weird about:
-- pyright, gives error "Argument missing for parameter 'flush'" on print statement (not the best first impression, may need further analysis);
+- Pylyzer, this project is still under heavy development, but in the future will be my best choice, by the time I am writing I had issue to let it work with UV;
+- Mypy, is super slow, but as per today it would be my second choice, because is super tested and does the work;
 - pyre, only live checking, does NOT have a cli to run the check from;
 - pyanalize, it may execute files that have `if __name__ == '__main__'` because it imports file in order to type check them;
 - pytype, by the time I'm writing it does NOT support Python 3.13;
-
 
 ### What is Pre-commit? What is used for? ###
 Pre-commit is a framework for managing and maintaining Git hooks.   
@@ -95,7 +97,7 @@ If anybody is aware of that, please feel free to open a PR with your considerati
 ## Getting Started ##
 - [Install devbox](https://www.jetify.com/docs/devbox/installing_devbox/) and let it handle all the work for you;
 - Clone the project by: `git clone git@github.com:vallops99/bootstrap-python-project.git` (change the url in case you prefer HTTPS over SSH);
-- Throw away the `.git` folder as you will customize the project per your needs: `rm -rf bootstrap-python-project/.git`;
+- Throw away the `.git` folder as you will customize the project per your needs: `rm -r bootstrap-python-project/.git`;
 - Rename the project's folder as you like: `mv bootstrap-python-project <insert_your_project_name_here>`;
 - Get into your project: `cd <insert_your_project_name_here>`;
 - Initialize your new repository: `git init`;
@@ -112,3 +114,9 @@ Bear in mind that your first commit will be slow due to dependencies installatio
 
 
 ## Testing workspace ##
+A dedicated paragraph goes to UV workspaces, these are a completely new configuration in the Python projects landscape.
+UV, given its Rust nature, followed the cargo principle of workspaces.
+A workspace is implemented like a sub project of the main one, everything will be part of the main repository, but projectually speaking it will be treated like a dependency.
+In this project you can see a very tiny example of two workspaces inside the `bootstrap-python-project` repository, they are referenced inside the pyproject as dependencies and they will be distrubuted as such.
+A nice in real life example is having an API and an interface client of the API, these are two different projects, but their context is exactly the same.
+In this real life scenario, it will be very nice to have everything under the same repository in order to keep track of the changes of one another, but at the end shipping them separately.
