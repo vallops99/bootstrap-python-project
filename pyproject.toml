@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "Valerio Farrotti", email = "valerio.farrotti@gmail.com" }
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = [
     "ruff>=0.7.4",
     "randomizer-pkg==0.1.0",
