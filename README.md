@@ -114,9 +114,9 @@ Bear in mind that your first commit will be slow due to dependencies installatio
 
 
 ## Testing workspace ##
-A dedicated paragraph goes to UV workspaces, these are a completely new configuration in the Python projects landscape.
-UV, given its Rust nature, followed the cargo principle of workspaces.
-A workspace is implemented like a sub project of the main one, everything will be part of the main repository, but projectually speaking it will be treated like a dependency.
-In this project you can see a very tiny example of two workspaces inside the `bootstrap-python-project` repository, they are referenced inside the pyproject as dependencies and they will be distrubuted as such.
-A nice in real life example is having an API and an interface client of the API, these are two different projects, but their context is exactly the same.
-In this real life scenario, it will be very nice to have everything under the same repository in order to keep track of the changes of one another, but at the end shipping them separately.
+A dedicated paragraph goes to UV workspaces, these are a completely new configuration in the Python projects landscape.   
+UV, given its Rust nature, followed the cargo principle of workspaces.   
+A workspace is implemented like a sub project of the main one, everything will be part of the main repository, but projectually speaking it will be treated like a dependency.   
+In this project you can see a very tiny example of two workspaces inside the `bootstrap-python-project` repository, they are referenced inside the pyproject as dependencies and they will be distrubuted as such.   
+A nice in real life example is having an API and an interface client of the API, these are two different projects, but their context is exactly the same.   
+In this real life scenario, it will be very nice to have everything under the same repository in order to keep track of the changes of one another, but at the end shipping them separately.   
