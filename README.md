@@ -79,7 +79,7 @@ They all had something weird about:
 - Mypy, is super slow, but as per today it would be my second choice, because is super tested and does the work;
 - pyre, only live checking, does NOT have a cli to run the check from;
 - pyanalize, it may execute files that have `if __name__ == '__main__'` because it imports file in order to type check them;
-- pytype, by the time I'm writing it does NOT support Python 3.13;
+- pytype, by the time I'm writing no one ever added it to nixpkgs, an [issue](https://github.com/NixOS/nixpkgs/issues/272786) and a [PR](https://github.com/NixOS/nixpkgs/pull/272787) have already been made, but they require more work to do, will check later on;
 
 ### What is Pre-commit? What is used for? ###
 Pre-commit is a framework for managing and maintaining Git hooks.   
